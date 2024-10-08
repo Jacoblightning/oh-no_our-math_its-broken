@@ -5,6 +5,10 @@ realMax = Math.max
 realSin = Math.sin
 realCos = Math.cos
 
+// Lets screw up timeouts too
+realTimeout = setTimeout
+realInterval = setInterval
+
 Number.prototype.valueOf = function () {
     return realPow(Math.random(), 2) * 2 * this.RealValueOf();
 };
@@ -33,7 +37,15 @@ Math.cos = function (x) {
     return realCos(x.valueOf()).valueOf();
 }
 
-
-console.log(
-    Math.pow(2,2)
-);
+setTimeout = function(...values) {
+    if (values.length > 1){
+        values[1] = values[1].valueOf();
+    }
+    return realTimeout(...values);
+}
+setInterval = function(...values) {
+    if (values.length > 1){
+        values[1] = values[1].valueOf();
+    }
+    return realInterval(...values);
+}
