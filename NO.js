@@ -5,6 +5,16 @@ realMax = Math.max
 realSin = Math.sin
 realCos = Math.cos
 
+MATHDEBUG = True
+
+rcdeb = console.debug
+
+console.debug = function(...values) {
+    if (MATHDEBUG){
+        rcdeb(...values);
+    }
+}
+
 // Lets screw up timeouts too
 realTimeout = setTimeout
 realInterval = setInterval
