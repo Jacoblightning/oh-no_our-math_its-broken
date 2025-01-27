@@ -5,12 +5,13 @@ realMax = Math.max
 realSin = Math.sin
 realCos = Math.cos
 
-MATHDEBUG = True
+// Using a boolean crashes the browser
+MATHDEBUG = "True" 
 
 rcdeb = console.debug
 
 console.debug = function(...values) {
-    if (MATHDEBUG){
+    if (MATHDEBUG === "True"){
         rcdeb(...values);
     }
 }
